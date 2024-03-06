@@ -1,12 +1,12 @@
 package com.example.commute.team.controller;
 
+import com.example.commute.team.dto.GetTeamsInfoResponseDto;
 import com.example.commute.team.dto.TeamRegisterRequestDto;
 import com.example.commute.team.service.TeamService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/teams")
@@ -19,6 +19,12 @@ public class TeamController {
     public void registerTeam(@RequestBody TeamRegisterRequestDto request){
         teamService.registerTeam(request);
     }
+    // 팀 조회 API
+    @GetMapping
+    public List<GetTeamsInfoResponseDto> getTeamsInfo(){
+        return teamService.getTeamsInfo();
+    }
+
 }
 
 

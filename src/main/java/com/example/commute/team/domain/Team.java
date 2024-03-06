@@ -16,10 +16,15 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
     private String name;
+    private String manager = null;
     @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
 
     public Team(String name) {
         this.name = name;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
     }
 }
